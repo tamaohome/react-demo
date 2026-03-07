@@ -8,7 +8,7 @@ function Sample() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="widget">
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -18,14 +18,14 @@ function Sample() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
+      <div>
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
           Edit <code>src/components/sample/Sample.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </div>
   );
 }
 
