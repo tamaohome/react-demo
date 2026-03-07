@@ -28,6 +28,7 @@ function Clock() {
 
   return (
     <div className="widget clock">
+      <h2>Clock</h2>
       <p className="clock-label">
         {getRegion()} ({getUTCOffset()})
       </p>

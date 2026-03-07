@@ -9,6 +9,7 @@ function Sample() {
 
   return (
     <div className="widget">
+      <h2>Sample</h2>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
