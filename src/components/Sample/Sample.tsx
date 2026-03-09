@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
-import { Window } from "@/components/ui/window/Window";
-import { TitleBar } from "@/components/ui/titleBar/TitleBar";
+import { Window } from "@/components/ui/Window";
+import { TitleBar } from "@/components/ui/TitleBar";
 import styles from "./Sample.module.css";
 import classNames from "classnames";
 

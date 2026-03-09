@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Window } from "@/components/ui/window/Window";
-import { TitleBar } from "@/components/ui/titleBar/TitleBar";
+import { Window } from "@/components/ui/Window";
+import { TitleBar } from "@/components/ui/TitleBar";
 
 export const Clock: React.FC = () => {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString());

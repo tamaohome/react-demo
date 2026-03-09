@@ -1,7 +1,7 @@
 import React from "react";
-import { Icon } from "@/components/ui/icon";
+import { Icon } from "@/components/ui/Icon";
 
-interface TitleBarProps {
+export interface TitleBarProps {
   icon?: string;
   children: React.ReactNode;
 }
