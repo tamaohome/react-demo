@@ -26,7 +26,7 @@ export const Sample: React.FC = () => {
           />
         </a>
       </div>
-      <h3 className="text-stone-900 text-6xl font-semibold mb-6">Vite + React</h3>
+      <h3 className="text-slate-700 text-6xl font-semibold mb-6">Vite + React</h3>
       <div>
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
