@@ -3,13 +3,16 @@ import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import "@/styles/widget.css";
 import "./Sample.css";
+import { Icon } from "../ui/icon";
 
 function Sample() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="widget">
-      <h2>Sample</h2>
+      <h2>
+        <Icon name="React" /> Sample
+      </h2>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -28,6 +31,6 @@ function Sample() {
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </div>
   );
-}
+};
 
 export default Sample;

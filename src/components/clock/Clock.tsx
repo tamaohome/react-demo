@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "@/styles/widget.css";
 import "./Clock.css";
+import { Icon } from "../ui/icon";
 
 function Clock() {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString());
@@ -28,7 +29,9 @@ function Clock() {
 
   return (
     <div className="widget clock">
-      <h2>Clock</h2>
+      <h2>
+        <Icon name="Clock" /> Clock
+      </h2>
       <p className="clock-label">
         {getRegion()} ({getUTCOffset()})
       </p>
