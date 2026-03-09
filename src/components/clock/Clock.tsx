@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "@/styles/widget.css";
 import "./Clock.css";
 import { Icon } from "../ui/icon";
 
-function Clock() {
+export const Clock: React.FC = () => {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -38,6 +38,4 @@ function Clock() {
       <div className="clock-display">{time}</div>
     </div>
   );
-}
-
-export default Clock;
+};
