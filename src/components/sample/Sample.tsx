@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import "@/styles/widget.css";
-import "./Sample.css";
-import { Icon } from "../ui/icon";
+import "@/components/sample/Sample.css";
+import { Icon } from "@/components/ui/icon";
 
 export const Sample: React.FC = () => {
   const [count, setCount] = useState(0);

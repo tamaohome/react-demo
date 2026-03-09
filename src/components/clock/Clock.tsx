@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "@/styles/widget.css";
-import "./Clock.css";
-import { Icon } from "../ui/icon";
+import "@/components/clock/Clock.css";
+import { Icon } from "@/components/ui/icon";
 
 export const Clock: React.FC = () => {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString());
