@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "@/styles/widget.css";
-import "@/components/clock/Clock.css";
-import { Icon } from "@/components/ui/icon";
+import { Window } from "@/components/ui/window/Window";
+import { TitleBar } from "@/components/ui/titleBar/TitleBar";
 
 export const Clock: React.FC = () => {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString());
@@ -28,14 +27,14 @@ export const Clock: React.FC = () => {
   };
 
   return (
-    <div className="widget clock">
-      <h2>
-        <Icon name="Clock" /> Clock
-      </h2>
-      <p className="clock-label">
+    <Window>
+      <TitleBar icon="Clock">Clock</TitleBar>
+      <p className="text-sm text-gray-600 tracking-widest">
         {getRegion()} ({getUTCOffset()})
       </p>
-      <div className="clock-display">{time}</div>
-    </div>
+      <div className="text-6xl text-gray-800 font-mono tracking-wider mt-3 mb-4 [text-shadow:3px_3px_0px_rgba(0,0,0,0.1)]">
+        {time}
+      </div>
+    </Window>
   );
 };

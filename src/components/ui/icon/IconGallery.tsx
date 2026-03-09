@@ -1,6 +1,5 @@
 import React from "react";
 import { Icon, ICONS, type IconName } from "./index";
-import styles from "./IconGallery.module.css";
 
 /**
  * 利用可能なアイコン一覧
@@ -11,16 +10,19 @@ export const IconGallery: React.FC = () => {
   const iconNames = Object.keys(ICONS) as IconName[];
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Project Icon Gallery (Font Awesome 6)</h2>
+    <div className="p-6 text-slate-900">
+      <h2 className="mb-5 text-2xl font-bold">Project Icon Gallery (Font Awesome 6)</h2>
 
-      <div className={styles.grid}>
+      <div className="grid grid-cols-5 gap-4 auto-fill">
         {iconNames.map((name) => (
-          <div key={name} className={styles.card}>
-            <div className={styles.iconContainer}>
+          <div
+            key={name}
+            className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm border border-gray-200"
+          >
+            <div className="mb-3 text-gray-700">
               <Icon name={name} size={32} />
             </div>
-            <code className={styles.codeName}>{name}</code>
+            <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">{name}</code>
           </div>
         ))}
       </div>
