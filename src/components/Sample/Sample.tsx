@@ -21,17 +21,19 @@ export const Sample: React.FC = () => {
             <img src={reactLogo} className={classNames(styles.logo, styles.react)} alt="React logo" />
           </a>
         </div>
-        <h3 className="text-slate-700 text-5xl font-semibold mb-12">Vite + React</h3>
+        <h3 className="text-slate-700 text-5xl text-center font-semibold mb-12">Vite + React</h3>
         <button
           onClick={() => setCount((count) => count + 1)}
           className="self-center mb-5 px-5 py-2 rounded-lg border border-transparent bg-slate-100 text-slate-700 font-medium transition-colors duration-250 hover:border-blue-500 cursor-pointer"
         >
           count is {count}
         </button>
-        <p>
+        <p className="text-center">
           Edit <code>src/components/sample/Sample.tsx</code> and save to test HMR
         </p>
-        <p className="mt-6 text-slate-400">Click on the Vite and React logos to learn more</p>
+        <p className="mt-6 text-slate-400 text-sm text-center">
+          Click on the Vite and React logos to learn more
+        </p>
       </div>
     </Window>
   );

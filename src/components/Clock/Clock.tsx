@@ -29,10 +29,10 @@ export const Clock: React.FC = () => {
   return (
     <Window>
       <TitleBar icon="Clock">Clock</TitleBar>
-      <p className="text-sm text-gray-600 tracking-widest">
+      <p className="text-sm text-gray-600 tracking-widest text-center">
         {getRegion()} ({getUTCOffset()})
       </p>
-      <div className="text-6xl text-gray-800 font-mono tracking-wider mt-3 mb-4 [text-shadow:3px_3px_0px_rgba(0,0,0,0.1)]">
+      <div className="text-6xl font-mono tracking-wider mt-3 mb-4 text-center [text-shadow:3px_3px_0px_rgba(0,0,0,0.1)]">
         {time}
       </div>
     </Window>

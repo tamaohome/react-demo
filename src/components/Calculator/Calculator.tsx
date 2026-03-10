@@ -118,7 +118,7 @@ const Button: React.FC<ButtonProps> = ({ operator = false, rowSpan = 1, colSpan 
     "flex items-center justify-center w-full h-full text-xl font-bold border-0 rounded cursor-pointer px-5 py-2";
   const colorClasses = operator
     ? "bg-orange-400 hover:bg-orange-500 text-white"
-    : "bg-gray-200 hover:bg-gray-400";
+    : "bg-gray-200 hover:bg-gray-300";
   const buttonClasses = `${baseClasses} ${colorClasses}`;
 
   return (
