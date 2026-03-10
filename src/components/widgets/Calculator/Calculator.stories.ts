@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Sample } from "./Sample";
+import { Calculator } from "./Calculator";
 
 const meta = {
-  title: "Components/Sample",
-  component: Sample,
+  title: "Widgets/Calculator",
+  component: Calculator,
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Sample>;
+} satisfies Meta<typeof Calculator>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

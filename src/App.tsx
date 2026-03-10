@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Sample } from "@/components/Sample";
-import { Clock } from "@/components/Clock";
-import { Calculator } from "@/components/Calculator";
+import { Sample } from "@/components/widgets/Sample";
+import { Clock } from "@/components/widgets/Clock";
+import { Calculator } from "@/components/widgets/Calculator";
 
 export function App() {
   const [backgroundColor] = useState("linear-gradient(135deg, #667eea 0%, #764ba2 100%)");

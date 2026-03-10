@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Clock } from "./Clock";
+import { Sample } from "./Sample";
 
 const meta = {
-  title: "Components/Clock",
-  component: Clock,
+  title: "Widgets/Sample",
+  component: Sample,
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Clock>;
+} satisfies Meta<typeof Sample>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
