@@ -3,15 +3,15 @@ import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Window } from "@/components/ui/Window";
 import { TitleBar } from "@/components/ui/TitleBar";
-import styles from "./Sample.module.css";
+import styles from "./Demo.module.css";
 import classNames from "classnames";
 
-export const Sample: React.FC = () => {
+export const Demo: React.FC = () => {
   const [count, setCount] = useState(0);
 
   return (
     <Window>
-      <TitleBar icon="React">Sample</TitleBar>
+      <TitleBar icon="React">Demo</TitleBar>
       <div className="flex flex-col">
         <div className="flex justify-center gap-x-6 mb-6">
           <a href="https://vite.dev" target="_blank" rel="noreferrer">
@@ -29,7 +29,7 @@ export const Sample: React.FC = () => {
           count is {count}
         </button>
         <p className="text-center">
-          Edit <code>src/components/sample/Sample.tsx</code> and save to test HMR
+          Edit <code>src/components/widgets/Demo/Demo.tsx</code> and save to test HMR
         </p>
         <p className="mt-6 text-slate-400 text-sm text-center">
           Click on the Vite and React logos to learn more

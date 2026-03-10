@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Sample } from "@/components/widgets/Sample";
+import { Demo } from "@/components/widgets/Demo";
 import { Clock } from "@/components/widgets/Clock";
 import { Calculator } from "@/components/widgets/Calculator";
 import { Weather } from "@/components/widgets/Weather";
@@ -13,7 +13,7 @@ export function App() {
 
   return (
     <div className="flex flex-col items-center justify-center text-white gap-8">
-      <Sample />
+      <Demo />
       <Weather />
       <Clock />
       <Calculator />
