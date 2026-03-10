@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { Window } from "@/components/ui/Window";
 import { TitleBar } from "@/components/ui/TitleBar";
 import { GrLocation } from "react-icons/gr";
@@ -73,18 +75,6 @@ const WEATHER_EMOJIS: Record<number, string> = {
   96: "⛈️",
   99: "⛈️",
 };
-
-// Skeleton Loading Component
-const WeatherSkeleton: React.FC = () => (
-  <div className="animate-pulse">
-    <div className="h-4 bg-gray-300 rounded w-3/4 mb-4"></div>
-    <div className="h-12 bg-gray-300 rounded w-full mb-4"></div>
-    <div className="grid grid-cols-2 gap-4">
-      <div className="h-4 bg-gray-300 rounded"></div>
-      <div className="h-4 bg-gray-300 rounded"></div>
-    </div>
-  </div>
-);
 
 // ヘルパー関数: 座標から位置名を取得
 async function getReverseLocation(lat: number, lng: number): Promise<string> {
@@ -250,72 +240,95 @@ export const Weather: React.FC = () => {
     <Window>
       <TitleBar icon="Weather">Weather</TitleBar>
 
-      {loading !== "idle" ? (
-        <WeatherSkeleton />
-      ) : error ? (
-        <div className="text-red-500 text-sm mb-4">
-          <p>{error}</p>
-          <button
-            onClick={() => {
-              setError(null);
-              if (coordinates) {
-                fetchWeatherData(coordinates.latitude, coordinates.longitude);
-              }
-            }}
-            className="mt-2 px-3 py-1 bg-red-200 text-red-700 rounded text-xs hover:bg-red-300"
-          >
-            再試行
-          </button>
-        </div>
-      ) : weather ? (
-        <div className="space-y-4">
-          {/* 位置情報および位置情報の取得状態 */}
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-lg font-semibold text-slate-700">{weather.location}</h3>
-              <p className="text-xs text-gray-500">
-                {isPrecise ? "✓ 位置情報を取得済み" : "IPアドレスより取得"}
-              </p>
-            </div>
+      <div className="space-y-4">
+        {/* エラー表示 */}
+        {error && (
+          <div className="text-red-500 text-sm mb-4">
+            <p>{error}</p>
             <button
-              onClick={fetchPreciseLocation}
-              disabled={loading !== "idle"}
-              className="flex items-center gap-1 px-3 py-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              title="現在地を取得"
+              onClick={() => {
+                setError(null);
+                if (coordinates) {
+                  fetchWeatherData(coordinates.latitude, coordinates.longitude);
+                }
+              }}
+              className="mt-2 px-3 py-1 bg-red-200 text-red-700 rounded text-xs hover:bg-red-300"
             >
-              {loading !== "idle" ? (
-                <BiLoaderCircle className="animate-spin" size={20} />
-              ) : (
-                <GrLocation size={20} />
-              )}
-              <span className="pe-1 text-sm font-medium">現在地を取得</span>
+              再試行
             </button>
           </div>
+        )}
 
-          {/* 天気表示 */}
-          <div className="flex items-start justify-between">
-            <div>
-              <div className="text-5xl font-bold text-slate-700 tracking-wider">{weather.temperature}°C</div>
-              <p className="text-slate-600 mt-1 tracking-wider">
-                {WEATHER_DESCRIPTIONS[weather.weatherCode] || "不明"}
-              </p>
-            </div>
-            <div className="text-6xl">{WEATHER_EMOJIS[weather.weatherCode] || "🌐"}</div>
+        {/* 位置情報 */}
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">
+              {weather ? weather.location : <Skeleton width={120} />}
+            </h3>
+            <p className="text-xs text-gray-500">
+              {weather ? (
+                isPrecise ? (
+                  "✓ 位置情報を取得済み"
+                ) : (
+                  "IPアドレスより取得"
+                )
+              ) : (
+                <Skeleton width={100} style={{ marginTop: "8px" }} />
+              )}
+            </p>
           </div>
+          <button
+            onClick={fetchPreciseLocation}
+            disabled={loading !== "idle"}
+            className="flex items-center gap-1 px-3 py-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            title="現在地を取得"
+          >
+            {loading !== "idle" ? (
+              <BiLoaderCircle className="animate-spin" size={20} />
+            ) : (
+              <GrLocation size={20} />
+            )}
+            <span className="pe-1 text-sm font-medium">現在地を取得</span>
+          </button>
+        </div>
 
-          {/* 天気詳細情報 */}
-          <div className="grid grid-cols-2 gap-3 pt-3 border-t border-gray-200">
-            <div className="flex flex-col">
-              <span className="text-xs text-gray-500 uppercase tracking-wider">湿度</span>
-              <span className="text-lg font-semibold text-slate-700">{weather.humidity}%</span>
+        {/* 天気表示 */}
+        <div className="flex items-start justify-between">
+          <div>
+            <div className="text-5xl font-bold text-slate-700 tracking-wider">
+              {weather ? `${weather.temperature}°C` : <Skeleton width={140} />}
             </div>
-            <div className="flex flex-col">
-              <span className="text-xs text-gray-500 uppercase tracking-wider">風速</span>
-              <span className="text-lg font-semibold text-slate-700">{weather.windSpeed} m/s</span>
-            </div>
+            <p className="text-slate-600 mt-1 tracking-wider">
+              {weather ? (
+                WEATHER_DESCRIPTIONS[weather.weatherCode] || "不明"
+              ) : (
+                <Skeleton width={120} style={{ marginTop: "8px" }} />
+              )}
+            </p>
+          </div>
+          <div className="text-6xl">
+            {weather ? WEATHER_EMOJIS[weather.weatherCode] || "🌐" : <Skeleton width={80} />}
           </div>
         </div>
-      ) : null}
+
+        {/* 天気詳細情報 */}
+        <div className="grid grid-cols-2 gap-3 pt-3 border-t border-gray-200">
+          {/* 湿度 */}
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500 uppercase tracking-wider">湿度</span>
+            <span className="text-lg font-semibold text-slate-700">
+              {weather ? `${weather.humidity}%` : <Skeleton width={60} style={{ marginTop: "8px" }} />}
+            </span>
+          </div>
+          {/* 風速 */}
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500 uppercase tracking-wider">風速</span>
+            <span className="text-lg font-semibold text-slate-700">
+              {weather ? `${weather.windSpeed} m/s` : <Skeleton width={80} style={{ marginTop: "8px" }} />}
+            </span>
+          </div>
+        </div>
+      </div>
     </Window>
   );
 };
