@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext } from "react";
 import type { ReactNode } from "react";
 import { Window } from "@/components/ui/Window";
-import { TitleBar } from "@/components/ui";
+import { TitleBar } from "@/components/ui/TitleBar";
 
 class CalculatorEngine {
   private display: string = "0";
