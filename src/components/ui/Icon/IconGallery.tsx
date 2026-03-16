@@ -1,11 +1,10 @@
-import React from "react";
 import { Icon, ICONS, type IconName } from "./index";
 
 /**
  * 利用可能なアイコン一覧
  * @see https://react-icons.github.io/react-icons/icons/fa6/
  */
-export const IconGallery: React.FC = () => {
+export function IconGallery() {
   // ICONSの全キーを取得
   const iconNames = Object.keys(ICONS) as IconName[];
 
@@ -28,4 +27,4 @@ export const IconGallery: React.FC = () => {
       </div>
     </div>
   );
-};
+}

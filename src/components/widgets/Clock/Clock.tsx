@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Window } from "@/components/ui/Window";
 import { TitleBar } from "@/components/ui/TitleBar";
 
-export const Clock: React.FC = () => {
+export function Clock() {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -37,4 +37,4 @@ export const Clock: React.FC = () => {
       </div>
     </Window>
   );
-};
+}

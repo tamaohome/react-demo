@@ -135,7 +135,7 @@ const Button: React.FC<ButtonProps> = ({ operator = false, rowSpan = 1, colSpan 
   );
 };
 
-export const Calculator: React.FC = () => {
+export function Calculator() {
   const [calculator] = useState(() => new CalculatorEngine());
   const [display, setDisplay] = useState(calculator.getDisplay());
 
@@ -208,4 +208,4 @@ export const Calculator: React.FC = () => {
       </div>
     </Window>
   );
-};
+}

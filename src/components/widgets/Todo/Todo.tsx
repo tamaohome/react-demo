@@ -1,4 +1,3 @@
-import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Window } from "@/components/ui/Window";
@@ -6,7 +5,7 @@ import { TitleBar } from "@/components/ui/TitleBar";
 import { useTodo } from "@/hooks/useTodo";
 import { TodoItem } from "./TodoItem";
 
-export const Todo: React.FC = () => {
+export function Todo() {
   const { todos, isLoading, addTodo, toggleTodo, deleteTodo, updateTodo } = useTodo();
 
   return (
@@ -56,4 +55,4 @@ export const Todo: React.FC = () => {
       </div>
     </Window>
   );
-};
+}

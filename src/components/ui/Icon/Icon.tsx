@@ -20,8 +20,8 @@ export interface IconProps {
   color?: string;
 }
 
-export const Icon = ({ name, size, className = "", color }: IconProps) => {
+export function Icon({ name, size, className = "", color }: IconProps) {
   const IconComponent = ICONS[name];
 
   return <IconComponent size={size} className={className} color={color} />;
-};
+}

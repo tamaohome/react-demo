@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Window } from "@/components/ui/Window";
@@ -6,7 +6,7 @@ import { TitleBar } from "@/components/ui/TitleBar";
 import styles from "./Demo.module.css";
 import classNames from "classnames";
 
-export const Demo: React.FC = () => {
+export function Demo() {
   const [count, setCount] = useState(0);
 
   return (
@@ -37,4 +37,4 @@ export const Demo: React.FC = () => {
       </div>
     </Window>
   );
-};
+}

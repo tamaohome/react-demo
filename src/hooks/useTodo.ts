@@ -8,7 +8,7 @@ export interface TodoItem {
   done: boolean;
 }
 
-export const useTodo = () => {
+export function useTodo() {
   const [todos, setTodos] = useState<TodoItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -54,4 +54,4 @@ export const useTodo = () => {
   };
 
   return { todos, isLoading, addTodo, toggleTodo, deleteTodo, updateTodo };
-};
+}

@@ -15,7 +15,7 @@ interface TodoItemProps {
   onUpdate: (id: string, text: string) => void;
 }
 
-export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, onUpdate }) => {
+export function TodoItem({ todo, onToggle, onDelete, onUpdate }: TodoItemProps) {
   const [isHovering, setIsHovering] = React.useState(false);
   const [text, setText] = useState(todo.text);
 
@@ -66,4 +66,4 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, on
       </button>
     </li>
   );
-};
+}

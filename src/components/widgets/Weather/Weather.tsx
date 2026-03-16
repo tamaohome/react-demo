@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Window } from "@/components/ui/Window";
@@ -91,7 +91,7 @@ async function getReverseLocation(lat: number, lng: number): Promise<string> {
   }
 }
 
-export const Weather: React.FC = () => {
+export function Weather() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
   const [loading, setLoading] = useState<LoadingState>("fetching");
@@ -331,4 +331,4 @@ export const Weather: React.FC = () => {
       </div>
     </Window>
   );
-};
+}
