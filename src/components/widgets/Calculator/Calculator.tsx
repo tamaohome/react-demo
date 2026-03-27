@@ -84,7 +84,7 @@ interface DisplayProps {
 const Display: React.FC<DisplayProps> = ({ value }) => {
   return (
     <div
-      className="flex items-center justify-end bg-gray-100 px-4 py-2 rounded min-h-12 text-4xl font-bold"
+      className="flex min-h-12 items-center justify-end rounded bg-gray-100 px-4 py-2 text-4xl font-bold"
       style={{ textShadow: "2px 2px 0px rgba(0, 0, 0, 0.1)" }}
     >
       {value}

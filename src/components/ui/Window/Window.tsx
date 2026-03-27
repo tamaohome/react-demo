@@ -6,6 +6,6 @@ interface WindowProps {
 
 export function Window({ children }: WindowProps) {
   return (
-    <div className="p-8 rounded-lg overflow-hidden bg-white shadow-2xl text-slate-600 w-full">{children}</div>
+    <div className="w-full overflow-hidden rounded-lg bg-white p-8 text-slate-600 shadow-2xl">{children}</div>
   );
 }

@@ -13,10 +13,10 @@ export function Todo() {
       <TitleBar icon="Todo">Todo</TitleBar>
 
       {/* 項目リスト */}
-      <div className="flex flex-col h-96">
+      <div className="flex h-96 flex-col">
         <div className="min-h-64 flex-1 overflow-y-auto">
           {isLoading ? (
-            <ul className="space-y-2 list-none">
+            <ul className="list-none space-y-2">
               {[0, 1, 2, 3, 4].map((i) => (
                 <li key={i} className="flex items-center gap-3 px-2 py-2">
                   <Skeleton circle height={20} width={20} />
@@ -25,9 +25,9 @@ export function Todo() {
               ))}
             </ul>
           ) : (
-            <ul className="space-y-1 pr-2 custom-scrollbar list-none">
+            <ul className="custom-scrollbar list-none space-y-1 pr-2">
               {todos.length === 0 ? (
-                <div className="text-center py-8 text-gray-400 text-sm">タスクがありません</div>
+                <div className="py-8 text-center text-sm text-gray-400">タスクがありません</div>
               ) : (
                 todos.map((todo) => (
                   <TodoItem
@@ -44,10 +44,10 @@ export function Todo() {
         </div>
 
         {/* 追加ボタン */}
-        <div className="flex justify-end mt-4">
+        <div className="mt-4 flex justify-end">
           <button
             onClick={() => addTodo("")}
-            className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold hover:bg-blue-600 transition-colors"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500 text-xl font-bold text-white transition-colors hover:bg-blue-600"
           >
             ＋
           </button>

@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <div className="w-120 h-96 border border-gray-200 rounded-lg bg-white shadow-sm">
+    <div className="h-96 w-120 rounded-lg border border-gray-200 bg-white shadow-sm">
       <Todo />
     </div>
   ),

@@ -29,10 +29,10 @@ export function Clock() {
   return (
     <Window>
       <TitleBar icon="Clock">Clock</TitleBar>
-      <p className="text-sm text-gray-600 tracking-widest text-center">
+      <p className="text-center text-sm tracking-widest text-gray-600">
         {getRegion()} ({getUTCOffset()})
       </p>
-      <div className="text-6xl font-mono tracking-wider mt-3 mb-4 text-center [text-shadow:3px_3px_0px_rgba(0,0,0,0.1)]">
+      <div className="mt-3 mb-4 text-center font-mono text-6xl tracking-wider [text-shadow:3px_3px_0px_rgba(0,0,0,0.1)]">
         {time}
       </div>
     </Window>

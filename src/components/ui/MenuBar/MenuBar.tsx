@@ -39,9 +39,9 @@ export function MenuBar() {
   return (
     <>
       <div role="presentation" className="h-8"></div>
-      <header className="fixed top-0 px-4 text-sm flex justify-between items-center right-0 left-0 z-50 h-8 bg-black/65 shadow backdrop-blur-sm">
+      <header className="fixed top-0 right-0 left-0 z-50 flex h-8 items-center justify-between bg-black/65 px-4 text-sm shadow backdrop-blur-sm">
         <h1 className="font-semibold">React + Vite + Tailwind CSS Demo</h1>
-        <div className="text-gray-300 font-mono text-xs">
+        <div className="font-mono text-xs text-gray-300">
           <CurrentDate />
           <span className="mx-2">|</span>
           <CurrentTime />

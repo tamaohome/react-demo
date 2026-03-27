@@ -12,16 +12,16 @@ export function IconGallery() {
     <div className="p-6 text-slate-900">
       <h2 className="mb-5 text-2xl font-bold">Project Icon Gallery (Font Awesome 6)</h2>
 
-      <div className="grid grid-cols-5 gap-4 auto-fill">
+      <div className="auto-fill grid grid-cols-5 gap-4">
         {iconNames.map((name) => (
           <div
             key={name}
-            className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm border border-gray-200"
+            className="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
           >
             <div className="mb-3 text-gray-700">
               <Icon name={name} size={32} />
             </div>
-            <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">{name}</code>
+            <code className="rounded bg-gray-100 px-1 py-0.5 text-xs">{name}</code>
           </div>
         ))}
       </div>

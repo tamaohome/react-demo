@@ -243,7 +243,7 @@ export function Weather() {
       <div className="space-y-4">
         {/* エラー表示 */}
         {error && (
-          <div className="text-red-500 text-sm mb-4">
+          <div className="mb-4 text-sm text-red-500">
             <p>{error}</p>
             <button
               onClick={() => {
@@ -252,7 +252,7 @@ export function Weather() {
                   fetchWeatherData(coordinates.latitude, coordinates.longitude);
                 }
               }}
-              className="mt-2 px-3 py-1 bg-red-200 text-red-700 rounded text-xs hover:bg-red-300"
+              className="mt-2 rounded bg-red-200 px-3 py-1 text-xs text-red-700 hover:bg-red-300"
             >
               再試行
             </button>
@@ -280,7 +280,7 @@ export function Weather() {
           <button
             onClick={fetchPreciseLocation}
             disabled={loading !== "idle"}
-            className="flex items-center gap-1 px-3 py-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1 rounded-full bg-blue-100 px-3 py-2 text-blue-600 transition-colors hover:bg-blue-200 disabled:cursor-not-allowed disabled:opacity-50"
             title="現在地を取得"
           >
             {loading !== "idle" ? (
@@ -295,10 +295,10 @@ export function Weather() {
         {/* 天気表示 */}
         <div className="flex items-start justify-between">
           <div>
-            <div className="text-5xl font-bold text-slate-700 tracking-wider">
+            <div className="text-5xl font-bold tracking-wider text-slate-700">
               {weather ? `${weather.temperature}°C` : <Skeleton width={140} />}
             </div>
-            <p className="text-slate-600 mt-1 tracking-wider">
+            <p className="mt-1 tracking-wider text-slate-600">
               {weather ? (
                 WEATHER_DESCRIPTIONS[weather.weatherCode] || "不明"
               ) : (
@@ -312,17 +312,17 @@ export function Weather() {
         </div>
 
         {/* 天気詳細情報 */}
-        <div className="grid grid-cols-2 gap-3 pt-3 border-t border-gray-200">
+        <div className="grid grid-cols-2 gap-3 border-t border-gray-200 pt-3">
           {/* 湿度 */}
           <div className="flex flex-col">
-            <span className="text-xs text-gray-500 uppercase tracking-wider">湿度</span>
+            <span className="text-xs tracking-wider text-gray-500 uppercase">湿度</span>
             <span className="text-lg font-semibold text-slate-700">
               {weather ? `${weather.humidity}%` : <Skeleton width={60} style={{ marginTop: "8px" }} />}
             </span>
           </div>
           {/* 風速 */}
           <div className="flex flex-col">
-            <span className="text-xs text-gray-500 uppercase tracking-wider">風速</span>
+            <span className="text-xs tracking-wider text-gray-500 uppercase">風速</span>
             <span className="text-lg font-semibold text-slate-700">
               {weather ? `${weather.windSpeed} m/s` : <Skeleton width={80} style={{ marginTop: "8px" }} />}
             </span>

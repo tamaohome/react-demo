@@ -33,7 +33,7 @@ export function TodoItem({ todo, onToggle, onDelete, onUpdate }: TodoItemProps) 
 
   return (
     <li
-      className="group flex items-center gap-3 px-2 py-2 rounded hover:bg-gray-100 transition-colors"
+      className="group flex items-center gap-3 rounded px-2 py-2 transition-colors hover:bg-gray-100"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -41,7 +41,7 @@ export function TodoItem({ todo, onToggle, onDelete, onUpdate }: TodoItemProps) 
         type="checkbox"
         checked={todo.done}
         onChange={() => onToggle(todo.id)}
-        className="w-5 h-5 rounded-full border border-gray-300 text-blue-500 focus:ring-2 focus:ring-blue-500 cursor-pointer"
+        className="h-5 w-5 cursor-pointer rounded-full border border-gray-300 text-blue-500 focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="text"
@@ -51,14 +51,14 @@ export function TodoItem({ todo, onToggle, onDelete, onUpdate }: TodoItemProps) 
         onBlur={handleBlur}
         placeholder="タスク名を入力"
         className={classNames(
-          "flex-1 text-sm px-2 py-1 border border-transparent rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-transparent transition-all",
-          todo.done ? "line-through text-gray-400" : "text-gray-700",
+          "flex-1 rounded border border-transparent bg-transparent px-2 py-1 text-sm transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none",
+          todo.done ? "text-gray-400 line-through" : "text-gray-700",
         )}
       />
       <button
         onClick={() => onDelete(todo.id)}
         className={classNames(
-          "p-1 text-gray-400 hover:text-red-500 transition-all",
+          "p-1 text-gray-400 transition-all hover:text-red-500",
           isHovering ? "opacity-100" : "opacity-0",
         )}
       >

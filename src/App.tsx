@@ -16,7 +16,7 @@ export function App() {
   return (
     <>
       <MenuBar />
-      <main className="flex flex-col items-center justify-center text-white gap-8">
+      <main className="flex flex-col items-center justify-center gap-8 text-white">
         <Demo />
         <Todo />
         <Weather />
