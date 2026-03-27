@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import { Window } from "@/components/ui/Window";
 import { TitleBar } from "@/components/ui/TitleBar";
 import styles from "./Demo.module.css";
-import classNames from "classnames";
+import { clsx } from "clsx";
 
 export function Demo() {
   const [count, setCount] = useState(0);
@@ -18,7 +18,7 @@ export function Demo() {
             <img src={viteLogo} className={styles.logo} alt="Vite logo" />
           </a>
           <a href="https://react.dev" target="_blank" rel="noreferrer">
-            <img src={reactLogo} className={classNames(styles.logo, styles.react)} alt="React logo" />
+            <img src={reactLogo} className={clsx(styles.logo, styles.react)} alt="React logo" />
           </a>
         </div>
         <h3 className="mb-12 text-center text-5xl font-semibold text-slate-700">Vite + React</h3>

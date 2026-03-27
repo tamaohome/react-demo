@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classNames from "classnames";
+import { clsx } from "clsx";
 import { FiTrash2 } from "react-icons/fi";
 
 interface Todo {
@@ -50,14 +50,14 @@ export function TodoItem({ todo, onToggle, onDelete, onUpdate }: TodoItemProps) 
         onKeyDown={handleKeyDown}
         onBlur={handleBlur}
         placeholder="タスク名を入力"
-        className={classNames(
+        className={clsx(
           "flex-1 rounded border border-transparent bg-transparent px-2 py-1 text-sm transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none",
           todo.done ? "text-gray-400 line-through" : "text-gray-700",
         )}
       />
       <button
         onClick={() => onDelete(todo.id)}
-        className={classNames(
+        className={clsx(
           "p-1 text-gray-400 transition-all hover:text-red-500",
           isHovering ? "opacity-100" : "opacity-0",
         )}
