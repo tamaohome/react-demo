@@ -1,5 +1,6 @@
 import type { IconType } from "react-icons";
 import { FaReact, FaClock, FaCalendarDays, FaStopwatch, FaSun, FaCalculator, FaList } from "react-icons/fa6";
+import { TbTicTac } from "react-icons/tb";
 
 export const ICONS: Record<string, IconType> = {
   React: FaReact,
@@ -9,6 +10,7 @@ export const ICONS: Record<string, IconType> = {
   Weather: FaSun,
   Calculator: FaCalculator,
   Todo: FaList,
+  TicTac: TbTicTac,
 } as const;
 
 export type IconName = keyof typeof ICONS;
