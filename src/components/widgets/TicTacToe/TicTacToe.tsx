@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { Window } from "@/components/ui/Window";
 import { TitleBar } from "@/components/ui/TitleBar";
-// import { Icon } from "@/components/ui/Icon";
+import { Icon } from "@/components/ui/Icon";
 
 type CellState = null | "O" | "X";
 
@@ -20,7 +20,9 @@ const Square = ({ value, onSquareClick }: SquareProps) => {
 
   return (
     <button className={classes} onClick={onSquareClick}>
-      <span className="font-mono text-4xl text-slate-400">{value}</span>
+      {/* <span className="font-mono text-4xl text-slate-400">{value}</span> */}
+      {value === "X" && <Icon name="Circle" size={60} className="text-4xl text-blue-400" />}
+      {value === "O" && <Icon name="Cross" size={60} className="text-4xl text-red-400" />}
     </button>
   );
 };
