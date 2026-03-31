@@ -8,6 +8,14 @@ import { Button } from "@/components/ui/Button";
 
 type CellState = null | "O" | "X";
 
+const renderPlayerIcon = (player: Exclude<CellState, null>, size = 24) => {
+  if (player === "X") {
+    return <Icon name="Circle" size={size} className="text-blue-400" />;
+  }
+
+  return <Icon name="Cross" size={size} className="text-red-400" />;
+};
+
 interface SquareProps {
   value: CellState;
   onSquareClick?: () => void;
@@ -22,8 +30,7 @@ const Square = ({ value, onSquareClick }: SquareProps) => {
   return (
     <button className={classes} onClick={onSquareClick}>
       {/* <span className="font-mono text-4xl text-slate-400">{value}</span> */}
-      {value === "X" && <Icon name="Circle" size={60} className="text-4xl text-blue-400" />}
-      {value === "O" && <Icon name="Cross" size={60} className="text-4xl text-red-400" />}
+      {value && renderPlayerIcon(value, 60)}
     </button>
   );
 };
@@ -61,12 +68,17 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps) => {
   };
 
   // ゲームの状態を表示する
-  let status: string;
-  if (winner) {
-    status = winner + "の勝ちです";
-  } else {
-    status = "次のプレイヤー: " + (xIsNext ? "X" : "O");
-  }
+  const status = winner ? (
+    <span className="inline-flex items-center gap-1">
+      {renderPlayerIcon(winner)}
+      の勝ちです
+    </span>
+  ) : (
+    <span className="inline-flex items-center gap-1">
+      {renderPlayerIcon(xIsNext ? "X" : "O")}
+      の番です
+    </span>
+  );
 
   return (
     <>
