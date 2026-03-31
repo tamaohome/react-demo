@@ -25,12 +25,14 @@ const Square = ({ value, onSquareClick }: SquareProps) => {
   );
 };
 
-// 3目並べの盤面
-const Board = () => {
-  // 状態変数の宣言
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState<CellState[]>(Array(9).fill(null));
+interface BoardProps {
+  xIsNext: boolean;
+  squares: CellState[];
+  onPlay: (nextSquares: CellState[]) => void;
+}
 
+// 3目並べの盤面
+const Board = ({ xIsNext, squares, onPlay }: BoardProps) => {
   // 勝者を計算する
   const winner = calculateWinner(squares);
 
@@ -52,10 +54,7 @@ const Board = () => {
     // プレーヤーの手番を決定する
     nextSquares[index] = xIsNext ? "X" : "O";
 
-    setSquares(nextSquares);
-
-    // プレーヤーを交代する
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   };
 
   // ゲームの状態を表示する
@@ -78,6 +77,27 @@ const Board = () => {
   );
 };
 
+const Game = () => {
+  // 状態変数の宣言
+  const [xIsNext, setXIsNext] = useState(true);
+  const [history, setHistory] = useState<CellState[][]>([Array(9).fill(null)]);
+  const currentSquares = history[history.length - 1];
+
+  const handlePlay = (nextSquares: CellState[]) => {
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
+  };
+
+  return (
+    <>
+      <div>{/*TODO*/}</div>
+      <div className="mx-auto">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+    </>
+  );
+};
+
 /**
  * 3目並べウィジェット
  * @returns JSX.Element
@@ -88,7 +108,7 @@ export function TicTacToe() {
     <Window>
       <TitleBar icon="TicTac">3目並べ</TitleBar>
       <section className="flex flex-col justify-center">
-        <Board />
+        <Game />
         <div className="mt-4 text-center text-sm">
           参考：
           <a
