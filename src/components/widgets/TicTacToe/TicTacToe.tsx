@@ -140,7 +140,7 @@ export function TicTacToe() {
       <TitleBar icon="TicTac">3目並べ</TitleBar>
       <section className="flex flex-col justify-center">
         <Game />
-        <div className="mt-4 text-center text-sm">
+        <div className="mt-8 text-center text-sm">
           参考：
           <a
             href="https://ja.react.dev/learn/tutorial-tic-tac-toe"
