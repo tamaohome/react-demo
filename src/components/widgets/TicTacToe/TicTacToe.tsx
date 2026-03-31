@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Window } from "@/components/ui/Window";
 import { TitleBar } from "@/components/ui/TitleBar";
 import { Icon } from "@/components/ui/Icon";
+import { Button } from "@/components/ui/Button";
 
 type CellState = null | "O" | "X";
 
@@ -96,27 +97,13 @@ const Game = () => {
     setCurrentMove(nextMove);
   };
 
-  const moves = history.map((_, move) => {
-    let description: string;
-    if (move > 0) {
-      description = "Go to move #" + move;
-    } else {
-      description = "Go to game start";
-    }
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)} className="rounded-xs border px-2 py-1 text-sm">
-          {description}
-        </button>
-      </li>
-    );
-  });
-
   return (
     <div className="mx-auto">
       <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      <div>
-        <ol className="flex flex-col space-y-2">{moves}</ol>
+      <div className="flex justify-center">
+        <Button onClick={() => jumpTo(currentMove - 1)} variant="cancel" disabled={currentMove === 0}>
+          元に戻す
+        </Button>
       </div>
     </div>
   );
