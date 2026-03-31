@@ -97,12 +97,20 @@ const Game = () => {
     setCurrentMove(nextMove);
   };
 
+  const resetGame = () => {
+    setHistory([Array(9).fill(null)]);
+    setCurrentMove(0);
+  };
+
   return (
     <div className="mx-auto">
       <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-2">
         <Button onClick={() => jumpTo(currentMove - 1)} variant="cancel" disabled={currentMove === 0}>
           元に戻す
+        </Button>
+        <Button onClick={resetGame} variant="cancel" disabled={currentMove === 0}>
+          リセット
         </Button>
       </div>
     </div>
