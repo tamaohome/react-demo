@@ -4,23 +4,27 @@ import { Window } from "@/components/ui/Window";
 import { useTodo } from "@/hooks/useTodo";
 import { TodoItem } from "./TodoItem";
 
+const loadingComponent = (
+  <ul className="list-none space-y-2">
+    {[0, 1, 2, 3, 4].map((i) => (
+      <li key={i} className="flex items-center gap-3 px-2 py-2">
+        <Skeleton circle height={20} width={20} />
+        <Skeleton width="70%" />
+      </li>
+    ))}
+  </ul>
+);
+
 export function Todo() {
   const { todos, isLoading, addTodo, toggleTodo, deleteTodo, updateTodo } = useTodo();
 
   return (
-    <Window icon="Todo" title="Todo">
+    <Window icon="Todo" title="Todo" height={400}>
       {/* 項目リスト */}
-      <div className="flex h-96 flex-col">
-        <div className="min-h-64 flex-1 overflow-y-auto">
+      <div className="flex h-full min-h-0 flex-col">
+        <div className="min-h-0 flex-1 overflow-y-auto pr-2">
           {isLoading ? (
-            <ul className="list-none space-y-2">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <li key={i} className="flex items-center gap-3 px-2 py-2">
-                  <Skeleton circle height={20} width={20} />
-                  <Skeleton width="70%" />
-                </li>
-              ))}
-            </ul>
+            loadingComponent
           ) : (
             <ul className="custom-scrollbar list-none space-y-1 pr-2">
               {todos.length === 0 ? (
