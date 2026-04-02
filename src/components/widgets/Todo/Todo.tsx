@@ -1,7 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Window } from "@/components/ui/Window";
-import { TitleBar } from "@/components/ui/TitleBar";
 import { useTodo } from "@/hooks/useTodo";
 import { TodoItem } from "./TodoItem";
 
@@ -9,9 +8,7 @@ export function Todo() {
   const { todos, isLoading, addTodo, toggleTodo, deleteTodo, updateTodo } = useTodo();
 
   return (
-    <Window>
-      <TitleBar icon="Todo">Todo</TitleBar>
-
+    <Window icon="Todo" title="Todo">
       {/* 項目リスト */}
       <div className="flex h-96 flex-col">
         <div className="min-h-64 flex-1 overflow-y-auto">

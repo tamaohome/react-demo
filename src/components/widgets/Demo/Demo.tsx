@@ -2,7 +2,6 @@ import { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Window } from "@/components/ui/Window";
-import { TitleBar } from "@/components/ui/TitleBar";
 import styles from "./Demo.module.css";
 import { clsx } from "clsx";
 
@@ -10,8 +9,7 @@ export function Demo() {
   const [count, setCount] = useState(0);
 
   return (
-    <Window>
-      <TitleBar icon="React">Demo</TitleBar>
+    <Window icon="React" title="Demo">
       <div className="flex flex-col">
         <div className="mb-6 flex justify-center gap-x-6">
           <a href="https://vite.dev" target="_blank" rel="noreferrer">

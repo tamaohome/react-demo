@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Window } from "@/components/ui/Window";
-import { TitleBar } from "@/components/ui/TitleBar";
 
 export function Clock() {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString());
@@ -27,8 +26,7 @@ export function Clock() {
   };
 
   return (
-    <Window>
-      <TitleBar icon="Clock">Clock</TitleBar>
+    <Window icon="Clock" title="Clock">
       <p className="text-center text-sm tracking-widest text-gray-600">
         {getRegion()} ({getUTCOffset()})
       </p>

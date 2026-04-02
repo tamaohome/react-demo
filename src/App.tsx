@@ -17,7 +17,7 @@ export function App() {
   return (
     <>
       <MenuBar />
-      <main className="flex flex-col items-center justify-center gap-8 text-white">
+      <main className="flex w-xl flex-col gap-8">
         <TicTacToe />
         <Demo />
         <Todo />

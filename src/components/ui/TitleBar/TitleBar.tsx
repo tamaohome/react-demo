@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@/components/ui/Icon";
+import clsx from "clsx";
 
 export interface TitleBarProps {
   icon?: string;
@@ -7,8 +8,15 @@ export interface TitleBarProps {
 }
 
 export function TitleBar({ icon, children }: TitleBarProps) {
+  const classes = clsx(
+    // ベースのスタイル
+    "text-white h-9 flex items-center gap-1.5 rounded-t-xs pl-2 ",
+    // 背景のスタイル
+    "bg-linear-to-r from-black/45 to-black/35 backdrop-blur-sm",
+  );
+
   return (
-    <h2 className="mb-6 -mx-8 -mt-8 px-2.5 py-2 bg-linear-to-r from-slate-700 to-slate-600 text-white text-base font-semibold rounded-t-[inherit] text-left flex items-center gap-1.5">
+    <h2 className={classes}>
       {icon && <Icon name={icon} size={20} />}
       {children}
     </h2>
