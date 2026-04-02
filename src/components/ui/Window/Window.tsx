@@ -14,7 +14,7 @@ export function Window({ icon, title, width, height, children }: WindowProps) {
     <section className="w-full shadow-2xl">
       <TitleBar icon={icon}>{title}</TitleBar>
       <div
-        className="w-full overflow-hidden rounded-b-xs bg-white p-6 pt-4 text-slate-700"
+        className="w-full overflow-hidden rounded-b-xs bg-white p-8 pt-6 text-slate-700"
         style={{ width, height }}
       >
         {children}
