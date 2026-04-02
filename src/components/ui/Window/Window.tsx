@@ -1,7 +1,9 @@
 import { TitleBar } from "@/components/ui/TitleBar";
+import clsx from "clsx";
 import React from "react";
+import { useState } from "react";
 
-interface WindowProps {
+export interface WindowProps {
   icon?: string;
   title: string;
   width?: number;
@@ -10,11 +12,22 @@ interface WindowProps {
 }
 
 export function Window({ icon, title, width, height, children }: WindowProps) {
+  const [isMinimized, setIsMinimized] = useState(false);
+
   return (
     <section className="w-full shadow-2xl">
-      <TitleBar icon={icon}>{title}</TitleBar>
+      <TitleBar
+        icon={icon}
+        isMinimized={isMinimized}
+        onMinimizeClick={() => setIsMinimized((value) => !value)}
+      >
+        {title}
+      </TitleBar>
       <div
-        className="w-full overflow-hidden rounded-b-xs bg-white p-8 pt-6 text-slate-700"
+        className={clsx(
+          "w-full overflow-hidden rounded-b-xs bg-white p-8 pt-6 text-slate-700",
+          isMinimized && "hidden",
+        )}
         style={{ width, height }}
       >
         {children}
