@@ -19,11 +19,11 @@ export function App() {
       <MenuBar />
       <main className="flex w-xl flex-col gap-8">
         <TicTacToe />
-        <Demo />
         <Todo />
         <Weather />
-        <Clock />
         <Calculator />
+        <Clock />
+        <Demo />
       </main>
     </>
   );
