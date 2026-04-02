@@ -2,7 +2,6 @@
 import { useState } from "react";
 
 import { Window } from "@/components/ui/Window";
-import { TitleBar } from "@/components/ui/TitleBar";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 
@@ -136,9 +135,8 @@ const Game = () => {
  */
 export function TicTacToe() {
   return (
-    <Window>
-      <TitleBar icon="TicTac">3目並べ</TitleBar>
-      <section className="flex flex-col justify-center">
+    <Window icon="TicTac" title="3目並べ">
+      <div className="flex flex-col justify-center">
         <Game />
         <div className="mt-8 text-center text-sm">
           参考：
@@ -150,7 +148,7 @@ export function TicTacToe() {
             https://ja.react.dev/learn/tutorial-tic-tac-toe
           </a>
         </div>
-      </section>
+      </div>
     </Window>
   );
 }

@@ -1,7 +1,6 @@
 import React, { useState, createContext, useContext } from "react";
 import type { ReactNode } from "react";
 import { Window } from "@/components/ui/Window";
-import { TitleBar } from "@/components/ui/TitleBar";
 
 class CalculatorEngine {
   private display: string = "0";
@@ -171,9 +170,7 @@ export function Calculator() {
   };
 
   return (
-    <Window>
-      <TitleBar icon="Calculator">Calculator</TitleBar>
-
+    <Window icon="Calculator" title="Calculator">
       <div className="flex flex-col gap-4 font-mono font-normal">
         <Display value={display} />
         <ButtonClickContext.Provider value={{ handleButtonClick }}>

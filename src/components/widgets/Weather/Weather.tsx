@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Window } from "@/components/ui/Window";
-import { TitleBar } from "@/components/ui/TitleBar";
 import { GrLocation } from "react-icons/gr";
 import { BiLoaderCircle } from "react-icons/bi";
 
@@ -237,9 +236,7 @@ export function Weather() {
   }, []);
 
   return (
-    <Window>
-      <TitleBar icon="Weather">Weather</TitleBar>
-
+    <Window icon="Weather" title="Weather">
       <div className="space-y-4">
         {/* エラー表示 */}
         {error && (
